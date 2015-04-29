@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Today - Sunny - 88/63"
+        android:text=""
         android:padding="15dp"
         android:id="@+id/list_item_forecat_textview"
          />

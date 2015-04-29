@@ -1,21 +1,9 @@
 package lin.zhang.sunshine.app;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -25,8 +13,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new ForecastFragment(), null)
                     .commit();
         }
     }
@@ -52,35 +39,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            ListView list = (ListView)rootView.findViewById(R.id.listView_forecast);
-            List<String> items = new ArrayList<String>();
-            items.add("Today - Sunny - 88/63");
-            items.add("Tomorrow - Foggy - 70/46");
-            items.add("Weds - Sunny - 72/63");
-            items.add("Thurs - Sunny - 64/51");
-            items.add("Fri - Sunny - 70/63");
-            items.add("Sat - Sunny - 76/63");
-
-            ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecat_textview, items);
-
-            list.setAdapter(arrayAdapter);
-
-
-            return rootView;
-        }
     }
 }
